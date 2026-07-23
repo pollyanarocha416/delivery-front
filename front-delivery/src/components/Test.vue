@@ -11,9 +11,9 @@ defineProps({
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+      Fazer
+      <a href="https://vite.dev/" target="_blank" rel="noopener">Login</a> ou
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Cadastro</a>.
     </h3>
   </div>
 </template>
