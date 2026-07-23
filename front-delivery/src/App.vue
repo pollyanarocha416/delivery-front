@@ -1,17 +1,26 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Test from './components/Test.vue';
 import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
   <header>
     
-      <HelloWorld msg="You did it!" />
+      <Test msg="Bem vindo a pagina inicial de login e cadastro" />
   </header>
+
+  <nav>
+    <router-link to="/login">Minha Página</router-link>
+  </nav>
+  
+  <!-- O componente da página vai aparecer aqui -->
+  <router-view />
 
   <main>
     <TheWelcome />
   </main>
+
+
 </template>
 
 <style scoped>
