@@ -6,13 +6,14 @@ defineProps({
   },
 })
 </script>
-
+<!-- Components = blocos reutilizáveis 
+(Navbar.vue, Footer.vue, CardProduto.vue, FormularioLogin.vue...) -->
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
       Fazer
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Login</a> ou
+      <a href="http://localhost:5173/segunda" target="_blank" rel="noopener">Login</a> ou
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Cadastro</a>.
     </h3>
   </div>

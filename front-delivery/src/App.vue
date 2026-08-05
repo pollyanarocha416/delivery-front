@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import Test from './components/Test.vue';
 import TheWelcome from './components/TheWelcome.vue'
 </script>
@@ -7,22 +7,30 @@ import TheWelcome from './components/TheWelcome.vue'
   <header>
     
       <Test msg="Bem vindo a pagina inicial de login e cadastro" />
+      <template>
+        <nav>
+          <router-link to="/segunda">Segunda</router-link>
+        </nav>
+
+        <router-view />
+      </template>
   </header>
 
-  <nav>
-    <router-link to="/login">Minha Página</router-link>
-  </nav>
-  
-  <!-- O componente da página vai aparecer aqui -->
   <router-view />
 
   <main>
     <TheWelcome />
   </main>
 
+</template> -->
+<template>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/segunda">Segunda</router-link>
+  </nav>
 
+  <router-view />
 </template>
-
 <style scoped>
 header {
   line-height: 1.5;
