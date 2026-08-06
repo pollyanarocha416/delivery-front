@@ -13,8 +13,8 @@ defineProps({
     <h1 class="green">{{ msg }}</h1>
     <h3>
       Fazer
-      <a href="http://localhost:5173/segunda" target="_blank" rel="noopener">Login</a> ou
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Cadastro</a>.
+      <a href="http://localhost:5173/login" target="_blank" rel="noopener">Login</a> ou
+      <a href="http://localhost:5173/cadastro" target="_blank" rel="noopener">Cadastro</a>.
     </h3>
   </div>
 </template>
