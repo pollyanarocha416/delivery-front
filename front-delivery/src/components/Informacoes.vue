@@ -3,6 +3,7 @@
     <i>
       <slot name="icon"></slot>
     </i>
+    <!-- Campos com informacoes -->
     <div class="details">
       <h3>
         <slot name="heading"></slot>

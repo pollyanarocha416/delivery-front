@@ -3,17 +3,41 @@ import { useRoute } from 'vue-router';
 const route = useRoute()
 </script>
 
+<!-- <script>
+export default {
+  data(){
+    return {
+      nome: '',
+      idade: '',
+
+    }
+  }
+}
+</script> -->
 
 <template>
   <nav>
-    
     <router-link v-if="route.path !== '/'" to="/">
       voltar
     </router-link>
   </nav>
-
+<main>
   <router-view />
+</main>
+  <!-- {{ nome }} {{ idade }}
+  <div v-text="nome"></div>
+  <input type="text" v-model="nome" placeholder="nome">
+  <input type="text" v-model="idade" placeholder="idade"> -->
 </template>
+
+<!-- <style>
+/* Testando */
+input{
+  background-color: aqua;
+  text-align: center;
+  border-radius: 10px;
+}
+</style> -->
 <style scoped>
 header {
   line-height: 1.5;
