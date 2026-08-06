@@ -1,20 +1,3 @@
-<script setup>
-import { useRoute } from 'vue-router';
-const route = useRoute()
-</script>
-
-<!-- <script>
-export default {
-  data(){
-    return {
-      nome: '',
-      idade: '',
-
-    }
-  }
-}
-</script> -->
-
 <template>
   <nav>
     <router-link v-if="route.path !== '/'" to="/">
@@ -24,20 +7,47 @@ export default {
 <main>
   <router-view />
 </main>
-  <!-- {{ nome }} {{ idade }}
-  <div v-text="nome"></div>
+
+<!-- Estudando: -->
+  {{ nome }} {{ idade }}
+  <!-- v-show só pra esconder da tela, no inspecionar aparece -->
+  <div v-if="status" v-text="nome"></div>
+  <div v-else>aaaaaaa</div>
+  <div v-if="data.id == 1">
+    Id: {{ data.id }}<br>
+    Nome: {{ data.nome }}
+  </div>
+  <h1 v-else>Nada</h1>
   <input type="text" v-model="nome" placeholder="nome">
-  <input type="text" v-model="idade" placeholder="idade"> -->
+  <input type="text" v-model="idade" placeholder="idade">
+<!--  -->
+
 </template>
 
-<!-- <style>
-/* Testando */
-input{
-  background-color: aqua;
-  text-align: center;
-  border-radius: 10px;
+<!-- estudando: -->
+<script>
+export default {
+  data(){
+    return {
+      status: false,
+      nome: '',
+      idade: '',
+      data: {
+        id: 1,
+        nome: "Polly"
+      }
+
+    }
+  }
 }
-</style> -->
+</script>
+<!--  -->
+
+
+<script setup>
+import { useRoute } from 'vue-router';
+const route = useRoute()
+</script>
 <style scoped>
 header {
   line-height: 1.5;
