@@ -14,7 +14,7 @@ defineProps({
     <h3>
       Fazer
       <a href="http://localhost:5173/login" target="_blank" rel="noopener">Login</a> ou
-      <a href="http://localhost:5173/cadastro" target="_blank" rel="noopener">Cadastro</a>.
+      <a href="http://localhost:5173/cadastro" target="_blank" rel="noopener">Criar pedido</a>.
     </h3>
   </div>
 </template>

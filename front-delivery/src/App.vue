@@ -9,7 +9,6 @@
 </main>
 
 <!-- Estudando: -->
-  {{ nome }} {{ idade }}
   <!-- v-show só pra esconder da tela, no inspecionar aparece -->
   <!-- <div v-if="status" v-text="nome"></div>
   <div v-else>aaaaaaa</div>
