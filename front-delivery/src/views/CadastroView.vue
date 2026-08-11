@@ -123,43 +123,112 @@ async function cadastrar() {
 </script>
 
 <template>
-  <h1>Cadastro de pedidos</h1>
+<div class="container">
+    <h1>Cadastro de pedidos</h1>
     <form>
         <input v-model="id_usuario" type="number" placeholder="ID do usuário" required /><br>
-        <button @click="cadastrar">
-          Cadastrar
-        </button>
     </form>
+    
+    <input
+    v-model="email"
+    type="text"
+    placeholder="Username"
+    >
+    <input
+  v-model="senha"
+  type="password"
+  placeholder="Password"
+  >
   
-  <input
-      v-model="email"
-      type="text"
-      placeholder="Username"
-  >
-
-  <input
-      v-model="senha"
-      type="password"
-      placeholder="Password"
-  >
-
-  <button @click="login">
-      Entrar
-  </button>
-   <p>{{ mensagem }}</p>
+  <div class="botoes">
+      <button @click="cadastrar">
+          Criar pedido
+        </button>
+        <button @click="login">
+            Login
+        </button>
+    </div>
+    <p>{{ mensagem }}</p>
+</div>
 </template>
 
-
 <style scoped>
+.container {
+    width: 100%;
+    max-width: 450px;
+    margin: 60px auto;
+    padding: 35px;
+    background-color: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
 h1 {
-  color: #11e887;
+    color: #11e887;
+    text-align: center;
+    margin-bottom: 30px;
 }
+
 label {
-  color: white;
+    display: block;
+    color: white;
+    margin-bottom: 7px;
+    font-size: 16px;
 }
+
 input {
-  width: 300px;
-  height: 35px;
-  margin-bottom: 10px;
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    margin-bottom: 18px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #252525;
+    color: white;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input:focus {
+    border-color: #11e887;
+    box-shadow: 0 0 5px rgba(17, 232, 135, 0.3);
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+button {
+    min-width: 130px;
+    height: 42px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #11e887;
+    color: #111;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #0dcc75;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.mensagem {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
 }
 </style>
