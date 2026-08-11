@@ -71,21 +71,17 @@ async function login() {
 
 async function cadastrar() {
     const token = localStorage.getItem('access_token')
-    const usuario = localStorage.getItem('id_usuario')
 
     if (!token) {
         mensagem.value = 'Faça login primeiro'
         return
     }
 
-    if (!usuario) {
-        mensagem.value = 'ID do usuário não encontrado'
-        return
+    const dados = {
+        id_usuario: Number(id_usuario.value)
     }
 
-    const dados = {
-        id_usuario: Number(usuario)
-    }
+    console.log('Enviando pedido:', dados)
 
     try {
         const resposta = await fetch(
@@ -104,19 +100,24 @@ async function cadastrar() {
 
         const resultado = await resposta.json()
 
+        console.log('Status:', resposta.status)
+        console.log('Resposta:', resultado)
+
         if (!resposta.ok) {
-            console.log('Erro:', resultado)
-            mensagem.value = resultado.detail || 'Erro ao cadastrar pedido'
+            mensagem.value =
+                resultado.detail || 'Erro ao criar pedido'
+
             return
         }
 
-        console.log('Pedido cadastrado:', resultado)
-
-        mensagem.value = 'Pedido cadastrado com sucesso!'
+        mensagem.value =
+            'Pedido criado com sucesso!'
 
     } catch (erro) {
-        console.log('Erro ao conectar com a API:', erro)
-        mensagem.value = 'Erro ao conectar com o servidor'
+        console.log('Erro ao criar pedido:', erro)
+
+        mensagem.value =
+            'Erro ao conectar com a API'
     }
 }
 </script>
@@ -145,7 +146,7 @@ async function cadastrar() {
   <button @click="login">
       Entrar
   </button>
-
+   <p>{{ mensagem }}</p>
 </template>
 
 
