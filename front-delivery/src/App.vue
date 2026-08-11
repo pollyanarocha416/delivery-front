@@ -11,7 +11,7 @@
 <!-- Estudando: -->
   {{ nome }} {{ idade }}
   <!-- v-show só pra esconder da tela, no inspecionar aparece -->
-  <div v-if="status" v-text="nome"></div>
+  <!-- <div v-if="status" v-text="nome"></div>
   <div v-else>aaaaaaa</div>
   <div v-if="data.id == 1">
     Id: {{ data.id }}<br>
@@ -19,13 +19,13 @@
   </div>
   <h1 v-else>Nada</h1>
   <input type="text" v-model="nome" placeholder="nome">
-  <input type="text" v-model="idade" placeholder="idade">
-<!--  -->
+  <input type="text" v-model="idade" placeholder="idade"> -->
+
 
 </template>
 
 <!-- estudando: -->
-<script>
+<!-- <script>
 export default {
   data(){
     return {
@@ -40,7 +40,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 <!--  -->
 
 

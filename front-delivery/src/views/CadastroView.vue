@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <h1>Cadastro</h1>
     <form>
         <label for="username">Email:
@@ -14,8 +14,140 @@
 </template>
 
 <script setup>
-// código opcional
+
+</script> -->
+<script setup>
+import { ref } from 'vue'
+
+const email = ref('')
+const senha = ref('')
+
+const id_usuario = ref('')
+const mensagem = ref('')
+
+
+async function login() {
+    const dados = {
+        email: email.value,
+        senha: senha.value
+    }
+
+    console.log('Enviando:', dados)
+
+    try {
+        const resposta = await fetch(
+            'http://localhost:8000/auth/login',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            }
+        )
+
+        const resultado = await resposta.json()
+
+        console.log('Status:', resposta.status)
+        console.log('Resposta:', resultado)
+
+        if (!resposta.ok) {
+            mensagem.value = resultado.detail || 'Erro ao fazer login'
+            return
+        }
+
+        localStorage.setItem(
+            'access_token',
+            resultado.access_token
+        )
+
+        mensagem.value = 'Login realizado com sucesso!'
+
+    } catch (erro) {
+        console.log('Erro ao conectar com a API:', erro)
+        mensagem.value = 'Erro ao conectar com o servidor'
+    }
+}
+
+async function cadastrar() {
+    const token = localStorage.getItem('access_token')
+    const usuario = localStorage.getItem('id_usuario')
+
+    if (!token) {
+        mensagem.value = 'Faça login primeiro'
+        return
+    }
+
+    if (!usuario) {
+        mensagem.value = 'ID do usuário não encontrado'
+        return
+    }
+
+    const dados = {
+        id_usuario: Number(usuario)
+    }
+
+    try {
+        const resposta = await fetch(
+            'http://localhost:8000/orders/order',
+            {
+                method: 'POST',
+
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+
+                body: JSON.stringify(dados)
+            }
+        )
+
+        const resultado = await resposta.json()
+
+        if (!resposta.ok) {
+            console.log('Erro:', resultado)
+            mensagem.value = resultado.detail || 'Erro ao cadastrar pedido'
+            return
+        }
+
+        console.log('Pedido cadastrado:', resultado)
+
+        mensagem.value = 'Pedido cadastrado com sucesso!'
+
+    } catch (erro) {
+        console.log('Erro ao conectar com a API:', erro)
+        mensagem.value = 'Erro ao conectar com o servidor'
+    }
+}
 </script>
+
+<template>
+  <h1>Cadastro de pedidos</h1>
+    <form>
+        <input v-model="id_usuario" type="number" placeholder="ID do usuário" required /><br>
+        <button @click="cadastrar">
+          Cadastrar
+        </button>
+    </form>
+  
+  <input
+      v-model="email"
+      type="text"
+      placeholder="Username"
+  >
+
+  <input
+      v-model="senha"
+      type="password"
+      placeholder="Password"
+  >
+
+  <button @click="login">
+      Entrar
+  </button>
+
+</template>
+
 
 <style scoped>
 h1 {
